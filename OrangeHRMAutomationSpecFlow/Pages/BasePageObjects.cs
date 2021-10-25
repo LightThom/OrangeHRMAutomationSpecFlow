@@ -1,4 +1,5 @@
 ﻿using OpenQA.Selenium;
+using OpenQA.Selenium.Interactions;
 using OpenQA.Selenium.Remote;
 using OpenQA.Selenium.Support.UI;
 using OrangeHRMAutomationSpecFlow.Utilities;
@@ -48,6 +49,26 @@ namespace OrangeHRMAutomationSpecFlow.Pages
         protected string GetDefaultPassword()
         {
             return UserConstants.Password;
+        }
+
+        protected bool DoesElementExist(IWebElement theElement)
+        {
+            try
+            {
+                var builder = new Actions(Driver);
+                builder.MoveToElement(theElement).Build().Perform();
+
+                return true;
+            }
+            catch (NoSuchElementException)
+            {
+                return false;
+            }
+            catch (WebDriverTimeoutException)
+                {
+                    return false;
+                }
+            
         }
     }
 }

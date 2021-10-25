@@ -27,13 +27,13 @@ namespace OrangeHRMAutomationSpecFlow.Steps
         [When(@"I navigate to the User Management screen")]
         public void WhenINavigateToTheUserManagementScreen()
         {
-            driver.FindElement(By.Id("menu_admin_viewAdminModule")).Click();
+            NavBarPage.ClickAdminButtonInMainMenu();
         }
 
         [Then(@"the System Users search form is present")]
         public void ThenTheSystemUsersSearchFormIsPresent()
         {
-            Assert.AreEqual(true, driver.FindElement(By.Id("systemUser-information")).Displayed);
+            Assert.IsTrue(UserPage.IsSystemUsersPresent(), "The Systems User form should be displayed");
         }
 
         [Then(@"Search Results is present")]

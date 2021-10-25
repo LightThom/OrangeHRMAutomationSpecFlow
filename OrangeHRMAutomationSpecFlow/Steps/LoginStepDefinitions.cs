@@ -25,29 +25,10 @@ namespace OrangeHRMAutomationSpecFlow.Steps
             LoginPage.LoginWithAdminCredentials();
         }
 
-        //[When(@"I enter the user name ""(.*)""")]
-        //public void WhenIEnterTheUserName(string userName)
-        //{
-        //    LoginPageObjects.TypeIntoUserNameField();
-
-        //}
-
-        //[When(@"I enter the password ""(.*)""")]
-        //public void WhenIEnterThePassword(string password)
-        //{
-        //    LoginPageObjects.TypeIntoPasswordeField();
-        //}
-
-        //[When(@"I click Login")]
-        //public void WhenIClickLogin()
-        //{
-        //    driver.FindElement(By.Id("btnLogin")).Click();
-        //}
-
         [Then(@"I am logged in")]
         public void ThenIAmLoggedIn()
         {
-            Assert.AreEqual(true, Driver.FindElement(By.Id("welcome")).Displayed);
+            Assert.IsTrue(UserPage.IsUserLoggedIn(), "The Welcome text should be displayed");
         }
 
     }

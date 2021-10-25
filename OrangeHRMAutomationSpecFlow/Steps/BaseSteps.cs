@@ -15,6 +15,8 @@ namespace OrangeHRMAutomationSpecFlow.Steps
 
         // Page object declarations
         public LoginPageObjects LoginPage { get; set; }
+        public NavBarPageObjects NavBarPage { get; set; }
+        public UserManagementPageObjects UserPage { get; set; }
         public UtilitySteps Utils { get; set; }
 
         public BaseSteps(SeleniumContext seleniumContext)
@@ -23,6 +25,8 @@ namespace OrangeHRMAutomationSpecFlow.Steps
 
             // Instantiate PageObjects for tests
             LoginPage = new LoginPageObjects(Driver);
+            NavBarPage = new NavBarPageObjects(Driver);
+            UserPage = new UserManagementPageObjects(Driver);
 
             // Instantiate helper classes
             Utils = new UtilitySteps();
