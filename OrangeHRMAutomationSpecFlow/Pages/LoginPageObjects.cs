@@ -11,7 +11,6 @@ namespace OrangeHRMAutomationSpecFlow.Pages
     {
         public LoginPageObjects(RemoteWebDriver webDriver) : base(webDriver)
         {
-
         }
 
         #region Element Locators

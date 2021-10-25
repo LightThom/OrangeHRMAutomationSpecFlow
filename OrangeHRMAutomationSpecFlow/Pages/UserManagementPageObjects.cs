@@ -21,15 +21,29 @@ namespace OrangeHRMAutomationSpecFlow.Pages
 
         private IWebElement SearchButton => Wait.Until(d => Driver.FindElementById("searchBtn"));
 
-        private IWebElement AddButton => Wait.Until(d => Driver.FindElementById("btnAdd"));
+        private IWebElement SearchResults => Wait.Until(d => Driver.FindElementById("search-results"));
 
+        private IWebElement AddButton => Wait.Until(d => Driver.FindElementById("btnAdd"));
         #endregion
 
         #region Non-Public Methods
+        private void ClickSearchButton()
+        {
+            Driver.WaitAndReinitialiseElements(this);
 
-    #endregion
+            SearchButton.Click();
+        }
 
-    #region Public Methods
+        private void ClickAddButton()
+        {
+            Driver.WaitAndReinitialiseElements(this);
+
+            AddButton.Click();
+        }
+
+        #endregion
+
+        #region Public Methods
 
         public bool IsUserLoggedIn()
         {
@@ -39,7 +53,10 @@ namespace OrangeHRMAutomationSpecFlow.Pages
         {
             return DoesElementExist(SystemUserMenu);
         }
-
+        public bool IsSearchUsersPresent()
+        {
+            return DoesElementExist(SearchResults);
+        }
 
         #endregion
     }
