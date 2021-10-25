@@ -24,11 +24,11 @@ namespace OrangeHRMAutomationSpecFlow
             _objContainer.RegisterInstanceAs(_seleniumContext);
         }
 
-        [AfterScenario(Order = 9999)]
-        public static void TearDown()
-        {
-            _seleniumContext.Driver.Dispose();
-        }
+        //[AfterScenario(Order = 9999)]
+        //public static void TearDown()
+        //{
+        //    _seleniumContext.Driver.Dispose();
+        //}
     }
 }
 

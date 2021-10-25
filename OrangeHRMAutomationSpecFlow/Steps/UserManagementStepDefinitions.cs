@@ -21,7 +21,7 @@ namespace OrangeHRMAutomationSpecFlow.Steps
         [Given(@"I am logged in as an Admin")]
         public void GivenIAmLoggedInAsAnAdmin()
         {
-            Driver.Navigate().GoToUrl(HomeUrl);
+            Driver.Navigate().GoToUrl(OrangeHRMUrl);
 
             driver.FindElement(By.Id("txtUsername")).SendKeys("Admin");
 
@@ -52,7 +52,7 @@ namespace OrangeHRMAutomationSpecFlow.Steps
         [Given(@"I am on the user management screen")]
         public void GivenIAmOnTheUserManagementScreen()
         {
-            Driver.Navigate().GoToUrl(HomeUrl);
+            Driver.Navigate().GoToUrl(OrangeHRMUrl);
 
             driver.FindElement(By.Id("txtUsername")).SendKeys("Admin");
 
@@ -96,7 +96,7 @@ namespace OrangeHRMAutomationSpecFlow.Steps
         [Given(@"I am on the Add User form")]
         public void GivenIAmOnTheAddUserForm()
         {
-            Driver.Navigate().GoToUrl(HomeUrl);
+            Driver.Navigate().GoToUrl(OrangeHRMUrl);
 
             driver.FindElement(By.Id("txtUsername")).SendKeys("Admin");
 

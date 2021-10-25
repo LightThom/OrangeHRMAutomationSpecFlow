@@ -11,10 +11,11 @@ namespace OrangeHRMAutomationSpecFlow.Steps
         public static RemoteWebDriver Driver;
 
         // Declare Home Page URL
-        public string HomeUrl { get; set; }
+        public string OrangeHRMUrl { get; set; }
 
         // Page object declarations
         public LoginPageObjects LoginPage { get; set; }
+        public UtilitySteps Utils { get; set; }
 
         public BaseSteps(SeleniumContext seleniumContext)
         {

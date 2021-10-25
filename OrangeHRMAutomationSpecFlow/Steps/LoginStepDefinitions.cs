@@ -15,7 +15,9 @@ namespace OrangeHRMAutomationSpecFlow.Steps
         [Given(@"I navigate to the to OrangeHRM app")]
         public void GivenINavigateToTheToOrangeHRMApp()
         {
-            Driver.Navigate().GoToUrl(HomeUrl);
+            OrangeHRMUrl = Utils.GetOrangeHRMUrl();
+
+            Driver.Navigate().GoToUrl(OrangeHRMUrl);
         }
 
         [When(@"I attempt to login with Admin credentials")]

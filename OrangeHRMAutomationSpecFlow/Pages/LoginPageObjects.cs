@@ -53,6 +53,8 @@ namespace OrangeHRMAutomationSpecFlow.Pages
         #endregion
 
         #region Public Methods
+
+        
         public void LoginWithAdminCredentials()
         {
             SubmitLoginDetails(UserConstants.Username, UserConstants.Password);

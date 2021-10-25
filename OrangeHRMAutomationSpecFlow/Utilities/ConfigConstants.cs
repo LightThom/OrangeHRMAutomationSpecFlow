@@ -10,7 +10,7 @@ namespace OrangeHRMAutomationSpecFlow.Utilities
         public static readonly string SeleniumServer = ConfigurationManager.AppSettings.Get("SeleniumServerUrl");
         public static readonly string Browser = ConfigurationManager.AppSettings.Get("BrowserName");
 
-        public const string LoginPage = "https://opensource-demo.orangehrmlive.com/index.php/auth/login";
+        public const string OrangeHRMUrl = "https://opensource-demo.orangehrmlive.com/index.php/auth/login";
 
     }
 }
