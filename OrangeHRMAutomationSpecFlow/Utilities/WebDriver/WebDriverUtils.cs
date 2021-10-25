@@ -32,17 +32,17 @@ namespace OrangeHRMAutomationSpecFlow.Utilities
         /// <summary>
         /// Sets the browser options for webdriver for use with the sepcific browser set in out App.config file.
         /// </summary>
-        /// <returns>The RemoteWebDriverObject with ptions set for the specific browser.</returns>        
+        /// <returns>The RemoteWebDriverObject with options set for the specific browser.</returns>        
         private static RemoteWebDriver GetDriver()
         {
-            SetupChromeDriver();
+            return SetupChromeDriver();
             // Get the browser we are using, and configure the driver object for use with it.
-            switch (ConfigConstants.Browser.ToLower())
-            {
-                case "chrome":
-                default:
-                    return SetupChromeDriver();
-            }
+            //switch (ConfigConstants.Browser.ToLower())
+            //{
+            //    case "chrome":
+            //    default:
+            //        return SetupChromeDriver();
+            //}
         }
 
         /// <summary>
@@ -61,7 +61,7 @@ namespace OrangeHRMAutomationSpecFlow.Utilities
             // Convert the options to capabilities this is so we can use them to configure the RemoteWebDriver
             chromeOptions.ToCapabilities();
 
-            return new RemoteWebDriver(new Uri(ConfigConstants.SeleniumServer), chromeOptions);      
+            return new RemoteWebDriver(new Uri("http://localhost:4444/wd/hub"), chromeOptions);      
         }
     }
 }
