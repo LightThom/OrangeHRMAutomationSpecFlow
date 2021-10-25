@@ -10,13 +10,12 @@ namespace OrangeHRMAutomationSpecFlow.Steps
     {
         public LoginStepDefinitions(SeleniumContext seleniumContext) : base(seleniumContext)
         {
+            OrangeHRMUrl = Utils.GetOrangeHRMUrl();
         }
 
         [Given(@"I navigate to the to OrangeHRM app")]
         public void GivenINavigateToTheToOrangeHRMApp()
         {
-            OrangeHRMUrl = Utils.GetOrangeHRMUrl();
-
             Driver.Navigate().GoToUrl(OrangeHRMUrl);
         }
 

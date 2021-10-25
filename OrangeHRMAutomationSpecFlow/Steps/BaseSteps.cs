@@ -19,9 +19,11 @@ namespace OrangeHRMAutomationSpecFlow.Steps
 
         public BaseSteps(SeleniumContext seleniumContext)
         {
-        Driver = seleniumContext.Driver;
+            Driver = seleniumContext.Driver;
 
             LoginPage = new LoginPageObjects(Driver);
+
+            Utils = new UtilitySteps();
         }
     
     }
