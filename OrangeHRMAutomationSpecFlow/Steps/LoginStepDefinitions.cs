@@ -1,54 +1,53 @@
 ﻿using NUnit.Framework;
 using OpenQA.Selenium;
 using OrangeHRMAutomationSpecFlow.Drivers;
+using OrangeHRMAutomationSpecFlow.Pages;
 using TechTalk.SpecFlow;
 
 namespace OrangeHRMAutomationSpecFlow.Steps
 {
     [Binding]
-    public sealed class LoginStepDefinitions
+    public class LoginStepDefinitions : BaseSteps
     {
-
-        IWebDriver driver;
-
-        private readonly ScenarioContext _scenarioContext;
-
-        public LoginStepDefinitions(ScenarioContext scenarioContext)
+        public LoginStepDefinitions(SeleniumContext seleniumContext) : base(seleniumContext)
         {
-            _scenarioContext = scenarioContext;
         }
-    
+
         [Given(@"I navigate to the to OrangeHRM app")]
         public void GivenINavigateToTheToOrangeHRMApp()
         {
-            driver = _scenarioContext.Get<SeleniumDriver>("SeleniumDriver").setup();
-
-            driver.Url = "https://opensource-demo.orangehrmlive.com/index.php/auth/login";
+            Driver.Navigate().GoToUrl(HomeUrl);
         }
 
-        [When(@"I enter the user name")]
-        public void WhenIEnterTheUserName()
+        [When(@"I attempt to login with Admin credentials")]
+        public void WhenIAttemptToLoginWithAdminCredentials()
         {
-            driver.FindElement(By.Id("txtUsername")).SendKeys("Admin");
-            
+            LoginPage.LoginWithAdminCredentials();
         }
 
-        [When(@"I enter the password")]
-        public void WhenIEnterThePassword()
-        {
-            driver.FindElement(By.Id("txtPassword")).SendKeys("admin123");
-        }
+        //[When(@"I enter the user name ""(.*)""")]
+        //public void WhenIEnterTheUserName(string userName)
+        //{
+        //    LoginPageObjects.TypeIntoUserNameField();
 
-        [When(@"I click Login")]
-        public void WhenIClickLogin()
-        {
-            driver.FindElement(By.Id("btnLogin")).Click();
-        }
+        //}
+
+        //[When(@"I enter the password ""(.*)""")]
+        //public void WhenIEnterThePassword(string password)
+        //{
+        //    LoginPageObjects.TypeIntoPasswordeField();
+        //}
+
+        //[When(@"I click Login")]
+        //public void WhenIClickLogin()
+        //{
+        //    driver.FindElement(By.Id("btnLogin")).Click();
+        //}
 
         [Then(@"I am logged in")]
         public void ThenIAmLoggedIn()
         {
-            Assert.AreEqual(true, driver.FindElement(By.Id("welcome")).Displayed);
+            Assert.AreEqual(true, Driver.FindElement(By.Id("welcome")).Displayed);
         }
 
     }
