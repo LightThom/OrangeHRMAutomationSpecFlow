@@ -1,30 +1,27 @@
 ﻿using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
-using OrangeHRMAutomationSpecFlow.Drivers;
 using TechTalk.SpecFlow;
 
 namespace OrangeHRMAutomationSpecFlow.Steps
 {
     [Binding]
-    public sealed class UserManagementStepDefinitions
+    public sealed class UserManagementStepDefinitions : BaseSteps
     {
 
         IWebDriver driver;
 
         private readonly ScenarioContext _scenarioContext;
 
-        public UserManagementStepDefinitions(ScenarioContext scenarioContext)
+        public UserManagementStepDefinitions(SeleniumContext seleniumContext) : base(seleniumContext)
         {
-            _scenarioContext = scenarioContext;
+
         }
 
         [Given(@"I am logged in as an Admin")]
         public void GivenIAmLoggedInAsAnAdmin()
         {
-            driver = _scenarioContext.Get<SeleniumDriver>("SeleniumDriver").setup();
-
-            driver.Url = "https://opensource-demo.orangehrmlive.com/index.php/auth/login";
+            Driver.Navigate().GoToUrl(HomeUrl);
 
             driver.FindElement(By.Id("txtUsername")).SendKeys("Admin");
 
@@ -55,9 +52,7 @@ namespace OrangeHRMAutomationSpecFlow.Steps
         [Given(@"I am on the user management screen")]
         public void GivenIAmOnTheUserManagementScreen()
         {
-            driver = _scenarioContext.Get<SeleniumDriver>("SeleniumDriver").setup();
-
-            driver.Url = "https://opensource-demo.orangehrmlive.com/index.php/auth/login";
+            Driver.Navigate().GoToUrl(HomeUrl);
 
             driver.FindElement(By.Id("txtUsername")).SendKeys("Admin");
 
@@ -101,9 +96,7 @@ namespace OrangeHRMAutomationSpecFlow.Steps
         [Given(@"I am on the Add User form")]
         public void GivenIAmOnTheAddUserForm()
         {
-            driver = _scenarioContext.Get<SeleniumDriver>("SeleniumDriver").setup();
-
-            driver.Url = "https://opensource-demo.orangehrmlive.com/index.php/auth/login";
+            Driver.Navigate().GoToUrl(HomeUrl);
 
             driver.FindElement(By.Id("txtUsername")).SendKeys("Admin");
 

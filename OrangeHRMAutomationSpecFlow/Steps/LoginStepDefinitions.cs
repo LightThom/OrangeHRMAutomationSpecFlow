@@ -1,6 +1,5 @@
 ﻿using NUnit.Framework;
 using OpenQA.Selenium;
-using OrangeHRMAutomationSpecFlow.Drivers;
 using OrangeHRMAutomationSpecFlow.Pages;
 using TechTalk.SpecFlow;
 

@@ -35,6 +35,7 @@ namespace OrangeHRMAutomationSpecFlow.Utilities
         /// <returns>The RemoteWebDriverObject with ptions set for the specific browser.</returns>        
         private static RemoteWebDriver GetDriver()
         {
+            SetupChromeDriver();
             // Get the browser we are using, and configure the driver object for use with it.
             switch (ConfigConstants.Browser.ToLower())
             {
