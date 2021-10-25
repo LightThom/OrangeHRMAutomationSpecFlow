@@ -21,13 +21,7 @@ namespace OrangeHRMAutomationSpecFlow.Steps
         [Given(@"I am logged in as an Admin")]
         public void GivenIAmLoggedInAsAnAdmin()
         {
-            Driver.Navigate().GoToUrl(OrangeHRMUrl);
-
-            driver.FindElement(By.Id("txtUsername")).SendKeys("Admin");
-
-            driver.FindElement(By.Id("txtPassword")).SendKeys("admin123");
-
-            driver.FindElement(By.Id("btnLogin")).Click();
+            LoginPage.LoginWithAdminCredentials();
         }
    
         [When(@"I navigate to the User Management screen")]

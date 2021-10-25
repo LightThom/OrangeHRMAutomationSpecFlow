@@ -21,8 +21,10 @@ namespace OrangeHRMAutomationSpecFlow.Steps
         {
             Driver = seleniumContext.Driver;
 
+            // Instantiate PageObjects for tests
             LoginPage = new LoginPageObjects(Driver);
 
+            // Instantiate helper classes
             Utils = new UtilitySteps();
         }
     
