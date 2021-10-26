@@ -21,12 +21,27 @@ namespace OrangeHRMAutomationSpecFlow.Pages
 
         private IWebElement SearchButton => Wait.Until(d => Driver.FindElementById("searchBtn"));
 
+        private IWebElement EnterUsername => Wait.Until(d => Driver.FindElementById("searchSystemUser_userName"));
+
+        private IWebElement EmployeeNameSearch => Wait.Until(d => Driver.FindElementById("searchSystemUser_employeeName_empName"));
         private IWebElement SearchResults => Wait.Until(d => Driver.FindElementById("search-results"));
 
         private IWebElement AddButton => Wait.Until(d => Driver.FindElementById("btnAdd"));
         #endregion
 
         #region Non-Public Methods
+        private void EnterUseranmeText(string username)
+        {
+            Driver.WaitAndReinitialiseElements(this);
+
+            EnterUsername.SendKeys(username);
+        }
+        private void EnterEmployeeNameText(string employeename)
+        {
+            Driver.WaitAndReinitialiseElements(this);
+
+            EmployeeNameSearch.SendKeys(employeename);
+        }
         private void ClickSearchButton()
         {
             Driver.WaitAndReinitialiseElements(this);
